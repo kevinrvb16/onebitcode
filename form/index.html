@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORM</title>
+</head>
+
+<body>
+    <h3>Cadastro da liga dos astronautas</h3>
+    <form>
+        <div>
+            <label for='name'>Nome:</label>
+            <input type="text" name="name" id="name" required />
+        </div>
+        <br>
+        <div>
+            <label for='email'>Email:</label>
+            <input type="email" name="email" id="email" required />
+            -
+            <label for='password'>Password:</label>
+            <input type="password" name="password" id="password" required />
+
+        </div>
+        <br>
+        <div>
+            <label for="date">Data de nascimento:</label>
+            <input type="date" name="date" id="date" />
+            -
+            <label for="file">Foto:</label>
+            <input type="file" name="file" id="file" />
+        </div>
+        <br>
+        <div>
+            <label for="nationality">Nacionalidade:</label>
+            <select name="nationality" id="nationality">
+                <option value="russian">Russa</option>
+                <option value="american">Americana</option>
+                <option value="Brazilian">Brasileira</option>
+            </select>
+            -
+            <label>Gênero:</label>
+            <input type="radio" value="female" name="gender" id="f">F
+            <input type="radio" value="male" name="gender" id="m">M
+        </div>
+        <br>
+        <div>
+            <label>Suas principais qualidades: </label>
+            <br>
+            <label for="smart">Inteligência</label>
+            <input type="checkbox" name="smart" id="smart">|
+            <label for="smart">Relisiência</label>
+            <input type="checkbox" name="resilience" id="resilience">|
+            <label for="smart">Preparo físico</label>
+            <input type="checkbox" name="physical_preparation" id="physical_preparation">|
+            <label for="smart">Educação</label>
+            <input type="checkbox" name="education" id="education">|
+        </div>
+        <br>
+        <div>
+            <textarea name="description" id="description" cols="30" rows="10" placeholder="Porque você gostaria de ser astronauta"></textarea>
+        </div>
+        <br>
+    <input type="submit" value="Criar">
+    </form>
+
+</body>
+
+</html>
