@@ -1,21 +1,18 @@
-let name = prompt('Nome:')
-let type = prompt("Tipo: ")
-let  maxVelocity = prompt('Velocidade máxima: ')
-let option = prompt('Quer acelerar ou parar a nave?')
+let spaceship = {}
+spaceship.name = prompt('Nome:')
+spaceship.type = prompt("Tipo: ")
+spaceship.maxVelocity = prompt('Velocidade máxima: ')
 let increment, velocity = 0
-if (option == 'acelerar'){
-    increment = prompt('O quanto quer acelerar?')
-} else if (option == 'parar') {
-    alert('mensagem final aqui')
-}
+let option
 
-let incrementFunction = () => {
+function incrementFunction() {
     velocity += increment
 }
 
-let spaceship = {
-    name,
-    type,
-    maxVelocity,
-    velocity
+option = prompt('Quer acelerar ou parar a nave?')
+if (option == 'acelerar') {
+    increment = prompt('O quanto quer acelerar?')
+    incrementFunction()
 }
+
+alert(`Nave: ${spaceship.name}\nTipo: ${spaceship.type}\nVelocidade Máxima: ${spaceship.maxVelocity}\nVelocidade: ${velocity}`)
