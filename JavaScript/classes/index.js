@@ -25,7 +25,7 @@ do {
             break
         case '2':
             let result = 'Lista de naves:'
-            spaceships.map((spaceshipName, index)=> {result += '\n' + Number(index+1) + ' - ' + spaceshipName.name})
+            spaceships.map((spaceshipName, index)=> {result += '\n' + Number(index+1) + ' - ' + spaceshipName.name + ' (' + spaceshipName.numberOfCrew + ')'})
             alert(result)
             break
         case '3':
