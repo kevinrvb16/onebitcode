@@ -9,14 +9,17 @@ export default class Menu {
         this.spaceship.velocity += (0.83 * aceleration)
     }
 
-    printAndEnd() {
+    printAndExit() {
         alert('Nome: '+ this.spaceship.name + '\nQuantidade de tripulantes: ' + this.spaceship.numberOfCrew + '\nVelocidade atual: ' + this.spaceship.velocity + 'm/s')
     }
 
     registerSpaceship(){
         let name = prompt("Digite o nome da nave:")
         let numberOfCrew = prompt("Digite a quantidade de tripulantes:")
-        let type = prompt("Digite o tipo da nave:")
+        let type
+        while(!["batalha", "transporte"].includes(type)) {
+            type = prompt("Digite o tipo da nave (batalha ou transporte):")
+        }
         if (type == 'batalha') {
             let numberOfAvailableGuns = prompt("Digite a quantidade de armas disponíveis")
             this.spaceship = new Battleship(name, numberOfCrew, type, numberOfAvailableGuns)
@@ -41,7 +44,7 @@ export default class Menu {
                     this.registerSpaceship()
                     break
                 case '3':
-                    this.printAndEnd()
+                    this.printAndExit()
                     break
                 default:
                     alert('Opção inválida')
