@@ -1,19 +1,23 @@
 function registerHouse() {
-    let bairro = document.getElementById('bairro').value;
-    let n = document.getElementById('numero').value;
-    let area = document.getElementById('area').value;
-    let cidade = document.getElementById('cidade').value;
-    let elementDIV = document.createElement('div');
-    document.body.appendChild(elementDIV);
-    let conteudoNovo = document.createTextNode('Bairro:' + bairro + '\nÁrea:' + area + '\nCidade: ' + cidade + '\nNúmero: ' + n);
-    let button = document.createElement('button');
-    button.textContent = 'Remover'
-    elementDIV.appendChild(conteudoNovo);
-    elementDIV.appendChild(button);
-    button.addEventListener('click',deleteHouse , false);
+    let area = document.querySelector("input[name=area]").value;
+    let n = document.querySelector("input[name=numero]").value;
+    let bairro = document.querySelector("input[name=bairro]").value;
+    let cidade = document.querySelector("input[name=cidade]").value;
+
+    let newListValue = document.createElement("li");
+    newListValue.innerText = area + "m2, número " + n + " (" + bairro + " - " + cidade + ")"
+
+    let removeButton = document.createElement("button");
+    removeButton.type = "button";
+    removeButton.innerText = "Remover"
+    removeButton.setAttribute("onclick", "removeHouse(this)")
+
+    newListValue.appendChild(removeButton)
+
+    document.getElementById("house-list").appendChild(newListValue)
 }
 
-function deleteHouse(e) {
-    let deletedDIV = e.currentTarget.parentNode
-    deletedDIV.remove();
+function removeHouse(button) {
+    let liToRemove = button.parentNode
+    document.getElementById("house-list").removeChild(liToRemove)
 }
