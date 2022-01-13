@@ -5,8 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="app.js" type="text/javascript"></script>
+    <script src="property.js" type="text/javascript"></script>
+    <script src="index.js" type="text/javascript"></script>
 </head>
 <body>
-    
+    <form style="justify-content:center; position:absolute; left:450px;">
+        <p>
+            <label for="type"> Tipo do imóvel: </label>
+            <input type="text" name="type" id="type" placeholder="Dígite o tipo de imóvel">
+        </p>
+        <p>
+            <label for="area"> Área: </label>
+            <input type="text" name="area" id="area" placeholder="Dígite a área de imóvel">
+        </p>
+        <p>
+            <label for="isRent"> Está alugado? </label><br>
+            <input type="radio" name="isRent" value = "ALUGADO" />Sim
+            <input type="radio" name="isRent" value = "Disponível" />Não
+        </p>
+        <button type="submit" onclick="cadProperty()">Enviar</button>
+    </form>
+    <ul id="propertyList" width="400px" style="overflow: hidden"></ul>
 </body>
 </html>
