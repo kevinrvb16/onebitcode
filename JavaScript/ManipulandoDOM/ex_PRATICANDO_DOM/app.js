@@ -5,11 +5,12 @@ class App{
         let area = document.querySelector('input[name=area]').value;
         let isRent = document.querySelector('input[name=isRent]:checked').value;
         
-        let house = new Property(property, area, isRent)
+        let house = new Property(property, area)
+        house.isRent = isRent
         let ulElem = document.getElementById('propertyList')
         let ilElem = document.createElement('li');
         ulElem.appendChild(ilElem);
-        if (isRent == 'ALUGADO') {
+        if (house.isRent == 'ALUGADO') {
             ilElem.innerText = isRent + '\n\nTipo de propriedade: ' + property + "\n Área: " +  area + "\nEstá alugado? "
             ilElem.classList.add('alugado')
         } else {
