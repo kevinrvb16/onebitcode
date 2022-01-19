@@ -4,23 +4,20 @@ class App{
         let property = document.querySelector('input[name=type]').value;
         let area = document.querySelector('input[name=area]').value;
         let isRent = document.querySelector('input[name=isRent]:checked').value;
-    
+        
+        let house = new Property(property, area, isRent)
         let ulElem = document.getElementById('propertyList')
         let ilElem = document.createElement('li');
         ulElem.appendChild(ilElem);
         if (isRent == 'ALUGADO') {
-            ilElem.style.backgroundColor = 'red';
-            ilElem.style.color = 'white';
-            ilElem.style.width = '33%';
             ilElem.innerText = isRent + '\n\nTipo de propriedade: ' + property + "\n Área: " +  area + "\nEstá alugado? "
+            ilElem.classList.add('alugado')
         } else {
             ilElem.innerText = 'Tipo de propriedade: ' + property + "\n Área: " +  area + "\n" + isRent
         }
         let button = document.createElement('button');
         ilElem.appendChild(button);
-        ilElem.style.lineHeight = '36px'
-        ilElem.style.padding = '16px'
-        ilElem.style.justifyContent = 'space-between'
+        ilElem.classList.add('li');
         button.setAttribute('onclick', 'removeProperty(this)')
         button.innerText = "Remover"
         button.style.width = "120px"
