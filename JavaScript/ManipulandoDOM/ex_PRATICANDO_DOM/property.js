@@ -4,4 +4,8 @@ class Property {
         this.area = area;
         this.isRent = isRent;
     }
+
+    get isRent() { 
+        return this.isRent
+    }
 }
