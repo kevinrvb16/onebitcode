@@ -1,0 +1,12 @@
+
+li {
+    line-height: 36px;
+    padding: 16px;
+    justify-content: space-between;
+}
+
+.alugado {
+    background-color: red;
+    color: white;
+    width: 27%;
+}
