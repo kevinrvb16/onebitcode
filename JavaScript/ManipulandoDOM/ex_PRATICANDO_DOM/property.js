@@ -1,11 +1,10 @@
 class Property {
-    constructor(type, area, isRent) {
+    constructor(type, area) {
         this.type = type;
         this.area = area;
-        this.isRent = isRent;
     }
 
-    get isRent() { 
-        return this.isRent
-    }
+    get isRent() {}
+
+    set isRent(value) {}
 }
