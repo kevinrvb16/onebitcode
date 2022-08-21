@@ -3,17 +3,22 @@ export default class SpaceshipEngine {
         this.spaceship = spaceship
     }
 
-    async ligar = spaceship => {
-        new Promise( function(resolv, reject){
-            setTimeout(() => {
+    turnOn(){
+       this.checkCurrentCharge().then(currentCharge => {
+        console.log(`${this.spaceship.name} Partida autorizada: carga atual em ${currentCharge}%`)
+       }).catch(currentCharge => {
+        console.log(`${this.spaceship.name} Partida não autorizada: carga em apenas: ${currentCharge}%`)
+       })
+    }
 
-                if(spaceship.getLoadPercentage() > spaceship.cargaAtual) {
-                    resolve('Capaciddade ok')
-                } else {
-                    reject('Ops, não foi')
-                }
-                
-            }, 2000)
+    checkCurrentCharge() {
+        return new Promise((resolve, reject) => {
+            let currentCharge = this.spaceship.currentPercentCharge()
+            if (currentCharge >= 30) {
+                resolve(currentCharge)
+            } else {
+                reject(currentCharge)
+            }
         })
     }
 
