@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-size: 20px;
 }
 
 .item {
@@ -13,34 +14,38 @@
 .container {
     background-color: darkgray;
     display: flex;
-    flex: 1 0 100%;
     flex-direction: column;
     gap: 10px;
+    height: 100vh;
 }
 
 .grid-content {
+    flex: 1 0 auto;
     display: grid;
-    height: 100vh;
-    grid-auto-rows: minmax(80px, auto);
-    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+    gap: 5px;
     grid-template-columns: repeat(3, 1fr);
     grid-template-areas:
     "item1 item2 item3"
     "item4 item4 item4"
     "item5 item5 item6";
     margin: 0 10px 0 10px;
+    padding: 10px;
 }
 
 .item1 {
     grid-area: item1;
+    min-width: 250px;
 }
 
 .item2 {
     grid-area: item2;
+    min-width: 250px;
 }
 
 .item3 {
     grid-area: item3;
+    min-width: 250px;
 }
 
 .item4 {
@@ -49,20 +54,53 @@
 
 .item5 {
     grid-area: item5;
+    min-width: 350px;
 }
 
 .item6 {
     grid-area: item6;
+    min-width: 250px;
 }
 
 header {
     border: 2px solid black;
     background-color: white;
-    height: 50px;
+    height: 60px;
+    width: 100%;
 }
 
 footer {
     border: 2px solid black;
     background-color: white;
-    height: 50px;
+    height: 60px;
+    width: 100%;
+}
+
+@media (max-width: 780px) {
+    .grid-content {
+        grid-template-areas:
+        "item1 item1 item1"
+        "item2 item2 item2"
+        "item3 item3 item3"
+        "item4 item4 item4"
+        "item5 item5 item6";
+    }
+}
+
+@media (max-width: 630px) {
+    .grid-content {
+        grid-template-areas:
+        "item1 item1 item1"
+        "item2 item2 item2"
+        "item3 item3 item3"
+        "item4 item4 item4"
+        "item5 item5 item5"
+        "item6 item6 item6";
+    }
+}
+
+@media (max-width: 350px) {
+    .item5 {
+        min-width: auto;
+    }
 }
