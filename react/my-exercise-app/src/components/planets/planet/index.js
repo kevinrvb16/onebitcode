@@ -33,7 +33,10 @@ class Planet extends React.Component {
             {title}
             <DescriptionWithLink link={this.props.link} text={this.props.text}/>
             <GrayImg img_url={this.props.img_url} gray={this.props.gray_img} />
-            {this.state.satellites.map((satellite) => <h5>{satellite.name}</h5>)}
+            <h4>Satélites</h4>
+            <ul>
+                {this.state.satellites.map((satellite, index) => <li key={index}>{satellite.name}</li>)}
+            </ul>
             <hr/>
         </div>
     )
