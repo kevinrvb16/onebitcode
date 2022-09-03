@@ -1,61 +1,57 @@
 import Planet from "./planet";
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 async function getPlanets() {
     let response = await fetch('http://localhost:3000/api/planets.json');
     let data = await response.json();
     return data;
 }
-class Planets extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            planets: []
-        }
-    }
+/* componentDidMount() {
+    getPlanets().then(data => {
+        setState(state => ({
+            planets: data['planets']
+        }))
+    })
+} */
 
-    componentDidMount() {
+const Planets = () => {
+
+    const [planets, setPlanets] = useState([]);
+
+    useEffect(() => {
         getPlanets().then(data => {
-            this.setState(state => ({
-                planets: data['planets']
-            }))
+            setPlanets(data['planets']);
         })
+    }, [])
+    const removeLast = () => {
+        let new_Planets = [...planets];
+        new_Planets.pop();
+        setPlanets(new_Planets);
     }
 
-    removeLast = () => {
-        let new_Planets = [...this.state.planets]
-        new_Planets.pop()
-        this.setState(state => ({
-            planets: new_Planets
-        }))
+    const duplicateLastPlanet = () => {
+        let last_planet = planets[planets.length - 1];
+        
+        setPlanets([...planets, last_planet]);
     }
 
-    duplicateLastPlanet = () => {
-        let last_planet = this.state.planets[this.state.planets.length - 1]
-        this.setState(state => ({
-            planets: [...this.state.planets, last_planet]
-        }))
-    }
-
-    render() {
-        return (
-            <>
-                <h3>Planet List</h3>
-                <button onClick={this.removeLast}>Remove Last</button>
-                <button onClick={this.duplicateLastPlanet}>Duplicate Last</button>
-                <hr />
-                {this.state.planets.map((planet, index ) =>
-                    <Planet
-                        link={planet.link}
-                        name={planet.name}
-                        text={planet.description}
-                        img_url={planet.img_url}
-                        id_da_lua={planet.id}
-                        key={index} />
-                )}
-            </>
-        )
-    }
+    return (
+        <>
+            <h3>Planet List</h3>
+            <button onClick={removeLast}>Remove Last</button>
+            <button onClick={duplicateLastPlanet}>Duplicate Last</button>
+            <hr />
+            {planets.map((planet, index ) =>
+                <Planet
+                    link={planet.link}
+                    name={planet.name}
+                    text={planet.description}
+                    img_url={planet.img_url}
+                    id_da_lua={planet.id}
+                    key={index} />
+            )}
+        </>
+    )
 }
 
 
