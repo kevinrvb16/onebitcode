@@ -6,13 +6,6 @@ async function getPlanets() {
     let data = await response.json();
     return data;
 }
-/* componentDidMount() {
-    getPlanets().then(data => {
-        setState(state => ({
-            planets: data['planets']
-        }))
-    })
-} */
 
 const Planets = () => {
 
