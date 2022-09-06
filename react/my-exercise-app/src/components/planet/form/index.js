@@ -1,9 +1,10 @@
 import { useState } from "react";
 
 const SatellitesForm = (props) => {
-    let [satellite, setSatellite] = useState({
-        name: ""
-    });
+    const initialState = {
+        name : ''
+    }
+    let [satellite, setSatellite] = useState(initialState);
 
     const handleAppendSatellite = (e) => {
         setSatellite({
@@ -12,14 +13,14 @@ const SatellitesForm = (props) => {
     }
     const handleSubmit = (e) => {
         props.addSatellite(satellite)
-        console.log(satellite);
         e.preventDefault();
+        setSatellite(initialState)
     }
     return (
         <form onSubmit={handleSubmit}>
             <div>
                 <label htmlFor="satellite">Adicionar Satélite: </label>
-                <input name="satellite" id="satellite" onChange={handleAppendSatellite}></input>
+                <input name="satellite" id="satellite" type="text" value={satellite.name} onChange={handleAppendSatellite}/>
             </div>
             <br/>
             <input type="submit"/>

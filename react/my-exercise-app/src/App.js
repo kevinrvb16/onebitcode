@@ -1,8 +1,8 @@
-import Planets from "./components/planets";
+import AppRoutes from "./routes";
 function App() {
   return (
     <>
-      <Planets />
+      <AppRoutes />
     </>
   );
 }
